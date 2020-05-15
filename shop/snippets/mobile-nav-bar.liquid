@@ -1,0 +1,11 @@
+<div id="mobileNavBar">
+  <div class="display-table-cell">
+    <button class="menu-toggle mobileNavBar-link" aria-controls="navBar" aria-expanded="false"><span class="icon icon-hamburger" aria-hidden="true"></span>{{ 'layout.navigation.mobile_menu' | t }}</button>
+  </div>
+  <div class="display-table-cell">
+    <a href="/cart" class="cart-toggle mobileNavBar-link">
+      <span class="icon icon-cart"></span>
+      {{ 'layout.cart.cart' | t }} <span class="cart-count {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
+    </a>
+  </div>
+</div>

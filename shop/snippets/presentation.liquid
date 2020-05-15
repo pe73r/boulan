@@ -1,0 +1,17 @@
+<div class="SectionPresentation">
+   <div class="grid">
+     <div class="1/2--lap-and-up grid__cell">
+         <div class="PresentationContent">
+            <h1 class="PresentationTitle">{{ block.settings.title }}</h1>
+            <h2 class="PresentationText">{{ block.settings.content }}</h2>
+         </div>
+     </div>
+     <div class="1/2--lap-and-up grid__cell">
+        <div class="PresentationImage">
+          {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+          {% endif %}
+        </div>
+     </div>
+   </div>
+</div>

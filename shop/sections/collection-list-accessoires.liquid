@@ -1,0 +1,151 @@
+
+{% if section.settings.display %}
+<div data-section-id="{{ section.id }}" data-section-type="collections-list-template">
+  <div class="section-header">
+    <h2 style="font-size:{{section.settings.size_title}}px!important;" class="h1  section-header--left">{{ section.settings.section_title }}</h2>
+    {% if section.settings.section_text != blank %}
+      <div class="section-header--right">
+        <a href="/collections">{{ section.settings.section_text }} &rsaquo;</a>
+      </div>
+    {% endif %}
+  </div>
+  <div class="grid-uniform text-center">
+
+    {%- assign index = 0 -%}
+    {%- assign index = section.settings.nb_collection_row -%}
+
+    {% case index %}
+      {% when 2 %}
+        {%- assign featured_collection_width = 'small--one-whole one-half' -%}
+        {%- assign featured_collection_size = '540x' -%}
+        {%- assign width = '480' %}
+        {%- assign height = '480' %}
+      {% when 3 %}
+        {%- assign featured_collection_width = 'small--one-whole medium--one-half one-third' -%}
+        {%- assign featured_collection_size = '345x' -%}
+        {%- assign width = '310' -%}
+        {%- assign height = '310' -%}
+      {% when 4 %}
+        {%- assign featured_collection_width = 'small--one-whole medium--one-half grand--one-third one-quarter' -%}
+        {%- assign featured_collection_size = '250x' -%}
+        {%- assign width = '225' -%}
+        {%- assign height = '225' -%}
+      {% when 5 %}
+        {%- assign featured_collection_width = 'small--one-whole medium--one-half grand--one-third big--one-quarter one-fifth' -%}
+        {%- assign featured_collection_size = '195x' -%}
+        {%- assign width = '175' -%}
+        {%- assign height = '175' -%}
+    {% endcase %}
+
+    {% if index > 0 %}
+      {% for block in section.blocks %}
+        {%- assign featured = block.settings.collection %}
+        {% include 'featured-collection' with width: width, height: height %}
+      {% endfor %}
+    {% comment %}
+    {% else %}
+      {%- assign index = 0 %}
+      {% for collection in collections limit:7 %}
+        {% unless index >= 6 %}
+          {% unless collection.handle == 'frontpage' %}
+            {%- assign featured = collection.handle %}
+            {% include 'featured-collection' %}
+            {%- assign index = index | plus: 1 %}
+          {% endunless %}
+        {% endunless %}
+      {% endfor %}
+      {% endcomment %}
+    {% endif %}
+
+    {% if index == 0 %}
+      <div class="grid-item text-center">
+        <p>{{ 'homepage.featured_collections.no_collections_html' | t }}</p>
+      </div>
+      <div class="grid-item">
+        <div class="grid-uniform">
+          {% for i in (1..6) %}
+            <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              <p><a href="/admin/collections">{{ 'homepage.featured_collections.example_collection' | t }}</a></p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "class": "collection-list-section",
+    "max_blocks": 10,
+    "settings": [
+       {
+         "type": "checkbox",
+         "id": "display",
+         "label": "Display section ?",
+         "default": true
+       },
+      {
+        "type": "range",
+        "id": "nb_collection_row",
+        "label": "Collections par ligne",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "size_title",
+        "label": "Taille du titre",
+        "min": 9,
+        "max": 25,
+        "step": 1,
+        "default": 16
+      },
+ 	  {
+        "type": "text",
+        "id": "section_title",
+        "label": "Titre",
+		"default": "Collections"
+      },
+	   {
+        "type": "text",
+        "id": "section_text",
+        "label": "Texte du lien vers les collections",
+		"default": "Découvrir nos collections"
+      } 
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collections",
+        "blocks" : [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "blocks" : [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

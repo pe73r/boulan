@@ -1,0 +1,29 @@
+<hr>
+<div class="text-centre">
+  <div class="block-header text-center">
+    {% if block.settings.heading != blank %}
+      <label for="Email" class="h1">{{ block.settings.heading | escape }}</label>
+    {% endif %}
+    {% if block.settings.subtext != blank %}
+      <p>{{ block.settings.subtext | escape }}</p>
+    {% endif %}
+  </div>
+  {% form 'customer' %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+      <p class="note form-success">{{ 'layout.footer.newsletter_confirmation' | t }}</p>
+    {% else %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="input-group">
+        <label for="Email" class="visually-hidden">{{ 'contact.form.email' | t }}</label>
+        <input style="background-color:{{block.settings.color_background}}!important;color:{{block.settings.color_text}}!important;" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'layout.footer.newsletter_email_placeholder' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'layout.footer.newsletter_email_placeholder' | t }}" autocorrect="off" autocapitalize="off">
+        <span class="input-group-btn">
+          <button style="background-color:{{block.settings.color_button}}!important;color:{{block.settings.color_text}}!important;" type="submit" class="btn btn--small" name="commit" id="subscribe">{{ 'layout.footer.newsletter_sign_up' | t }}</button>
+        </span>
+      </div>
+    {% endif %}
+  {% endform %}
+  <div class="newsletter-agree">
+       {{block.settings.rgpd_newsletter}}
+  </div>
+</div>
