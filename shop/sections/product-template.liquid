@@ -1,0 +1,535 @@
+<div id="ProductSection" data-section-id="{{ section.id }}" data-section-type="product-template" data-zoom-toggle="zoom-in" data-zoom-enabled="{{ section.settings.product_image_zoom_enable }}" data-related-enabled="{{ section.settings.product_related_enable }}" data-social-sharing="{{ section.settings.social_sharing }}" data-show-compare-at-price="{{ section.settings.product_show_compare_at_price }}" data-stock="false" data-incoming-transfer="false" data-ajax-cart-method="{{ settings.ajax_cart_method }}">
+{% include 'breadcrumb' %}
+
+<div class="grid" itemscope itemtype="http://schema.org/Product"> 
+ <div> {{ product.metafields.alireviews.seo_rating_review_key }} </div>
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  <div class="grid-item large--two-fifths">
+    <div class="grid">
+      <div class="grid-item large--eleven-twelfths text-center">
+        <div class="product-photo-container" id="productPhotoContainer-{{ section.id }}">
+          {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+          {% for image in product.images %}
+            {% capture img_wrapper_id %}productPhotoWrapper-{{ section.id }}-{{ image.id }}{% endcapture %}
+            {% capture img_id %}productPhotoImg-{{ section.id }}-{{ image.id }}{% endcapture %}
+
+            <div class="lazyload__image-wrapper no-js product__image-wrapper{% unless image == featured_image %} hide{% endunless %}" id="{{ img_wrapper_id }}" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;" data-image-id="{{ image.id }}">
+              {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <img id="{{ img_id }}"
+                  {% if forloop.first == true %}
+                  src="{{ featured_image | img_url: '300x300' }}"
+                  {% endif %}
+                  class="lazyload no-js lazypreload"
+                  data-src="{{ img_url }}"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="{{ image.aspect_ratio }}"
+                  data-sizes="auto"
+                  alt="{{ image.alt | escape }}"
+                  {% if section.settings.product_image_zoom_enable %} data-zoom="{{ image | img_url: '1024x1024', scale: 2 }}"{% endif %}>
+            </div>
+            {% if forloop.first == true %}
+              <noscript>
+                <img src="{{ image | img_url: '580x' }}"
+                  srcset="{{ image | img_url: '580x' }} 1x, {{ image | img_url: '580x', scale: 2 }} 2x"
+                  alt="{{ image.alt }}" style="opacity:1;">
+              </noscript>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if product.images.size > 1 %}
+        
+         	{% if product.images.size > 4 %}
+         	  
+        	<div class="slider-thumbs slider-photo-thumbs-{{ section.id }}">
+
+                {% for image in product.images %}
+                  <div>
+                    <a href="{{ image.src | img_url: '1024x1024', scale: 2 }}" class="slider-photo-thumb" data-image-id="{{ image.id }}">
+                      <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                  </div>
+                {% endfor %}
+
+            </div>
+
+     		{% else %}
+              <ul class="slider-photo-thumbs-{{ section.id }} product-photo-thumbs grid-uniform" id="productThumbs-{{ section.id }}">
+
+                {% for image in product.images %}
+                  <li class="grid-item medium-down--one-quarter large--one-quarter" style="padding:1px 1px 0 0 !important;margin:0px">
+                    <a href="{{ image.src | img_url: '1024x1024', scale: 2 }}" class="slider-photo-thumb product-photo-thumb product-photo-thumb-{{ section.id }}" data-image-id="{{ image.id }}">
+                      <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                  </li>
+                {% endfor %}
+
+              </ul>
+        	{% endif %}
+      
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item large--three-fifths">
+    
+    
+    {% for block in section.blocks %}
+        {% if block.type == 'collection' %}
+            {% for collection in product.collections %}
+    				{% if block.settings.collection-logo == collection.handle %}
+    					{% if block.settings.collection-logo-image %}
+                          <div>
+                              {{ block.settings.collection-logo-image | img_url: '200x30' | img_tag: block.settings.collection-logo-image.alt }}
+                          </div>
+                        {% endif %}
+    				{% endif %}
+			{% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    <h1 style="font-size:{{section.settings.size_title}}px!important;" class="h2" itemprop="name">{{ product.title }}</h1>
+    <div class="ryviu-widget"></div>
+
+    {% if section.settings.product_vendor_enable %}
+      <p class="product-meta" itemprop="brand">{{ product.vendor }}</p>
+    {% endif %}
+
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+      {% assign variant = product.selected_or_first_available_variant %}
+
+      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+      <meta itemprop="price" content="{{ variant.price | divided_by: 100.00 }}">
+
+      <ul style="font-size:{{section.settings.size_price}}px!important;" class="inline-list product-meta">
+        <li>
+          <span id="productPrice-{{ section.id }}" class="h1 productTemplatePrice">
+            {% include 'price' with variant.price %}
+          </span>
+        </li>
+        {% if section.settings.product_reviews_enable %}
+          <li class="product-meta--review">
+            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+          </li>
+        {% endif %}
+      </ul>
+      
+        {% if product.compare_at_price_max > product.price and section.settings.product_show_saved_amount %}
+        <li>
+          <span id="comparePrice-{{ section.id }}" class="sale-tag large">
+            {% assign compare_price = variant.compare_at_price %}
+            {% assign product_price = variant.price %}
+            {% include 'price-sale' %}
+          </span>
+        </li>
+        {% endif %}
+         
+      <hr id="variantBreak" class="hr--clear hr--small">
+
+      <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCartForm-{{ section.id }}">
+        <select name="id" id="productSelect-{{ section.id }}" class="product-variants product-variants-{{ section.id }}">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+
+              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+            {% else %}
+              <option disabled="disabled">
+                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+              </option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+        {% if section.settings.product_quantity_enable %}
+          <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+        {% endif %}
+
+        <button type="submit" name="add" id="addToCart-{{ section.id }}" class="btn {% if section.settings.addToCart-vibrant %}addToCart-vibrant{% endif %}">
+          <span class="icon icon-cart"></span>
+          <span id="addToCartText-{{ section.id }}">{{ 'products.product.add_to_cart' | t }}</span>
+        </button>
+
+        {% if section.settings.product_quantity_message%}
+          <span id="variantQuantity-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity < 10 and variant.inventory_quantity > 0 %} is-visible{% endif %}">
+           {% if variant.inventory_management and variant.inventory_quantity < 10 and variant.inventory_quantity > 0 %}
+              {% assign qty = variant.inventory_quantity %}
+              {{ 'products.product.only_left' | t: count: qty }}
+            {% endif %}
+          </span>
+        {% endif %}
+
+        {% if section.settings.product_incoming_message %}
+          <span id="variantIncoming-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity <= 0 and variant.incoming %} is-visible{% endif %}">
+            {% if variant.inventory_management and variant.inventory_quantity == 0 or variant.inventory_quantity < 0 and current_variant.incoming %}
+              {% if variant.available %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                {{ 'products.product.will_not_ship_until' | t: date: date  }}
+              {% else %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                {{ 'products.product.will_be_in_stock_after' | t: date: date }}
+              {% endif %}
+            {% endif %}
+          </span>
+        {% endif %}
+
+      </form>
+
+
+    </div>
+    
+    
+    {% if section.settings.logo_secure %}
+      {% assign sizeImage = section.settings.logo_secure_size | append: 'x120' %}
+      <div class="{% if section.settings.logo_secure_center %}center-text{% endif %}">
+          {{ section.settings.logo_secure | img_url: sizeImage | img_tag: section.settings.logo_secure.alt }}
+      </div>
+    {% endif %}
+    
+    		
+    {% if section.settings.logo_trust or section.settings.trust_text != blank %}
+       <hr>
+        {% assign sizeImageTrust = section.settings.logo_trust_size | append: 'x120' %}
+        {% if section.settings.trust_text %}
+    <div style="text-align:left;" class="text-reason"><h3><strong>{{ section.settings.trust_text }}</strong></h3></div>
+        {% endif %} 
+        {% if section.settings.logo_trust %}      
+          <div class="{% if section.settings.logo_trust_center %}center-text{% endif %}">
+            {{ section.settings.logo_trust | img_url: sizeImageTrust | img_tag: section.settings.logo_trust.alt }}
+          </div>
+        {% endif %}       
+    {% endif %}
+    
+ </div>
+</div>
+  
+{% if section.settings.description_onglet %}
+  <div class="product-description rte" itemprop="description">
+      <style>
+        
+        #my-tab ul.tabs li a.active,#my-tab ul.tabs li:last-child a{border-top-right-radius:2px;}#my-tab,#my-tab ul.tabs:after{clear:both}#my-tab{margin-top:15px;overflow:hidden;display:block}#my-tab ul.tabs{display:block;margin:0;padding:0}#my-tab ul.tabs > li{display:block;float:left;height:45px;margin-bottom:0;padding:0;width:auto}#my-tab ul.tabs li a{-moz-border-bottom-colors:none;-moz-border-image:none;-moz-border-left-colors:none;-moz-border-right-colors:none;-moz-border-top-colors:none;background:#eef1f9;border-color:#DDD!important;border-style:solid;border-width:1px 1px 0px 0px;display:block;font-size:15px;height:45px;line-height:30px;margin:0;padding:7px 12px;text-decoration:none;width:auto;font-weight:700;color:#303030;}#my-tab ul.tabs li a.active{border-bottom:none!important;background:#fff;border-left-width:0;border-top-left-radius:2px;color:#111;height:46px}#my-tab ul.tabs li:first-child a.active{margin-left:0}#my-tab ul.tabs li:first-child a{border-top-left-radius:2px;border-width:1px 1px 0}#my-tab ul.tabs:before,ul.tabs:after{content:" ";display:block;height:0;overflow:hidden;visibility:hidden;width:0}#tab-1,#tab-2,#tab-3,#tab-4{border:1px solid #e7e7e7;border-top:1;padding:30px 35px 35px;min-height:215px}@media(max-width:600px){#my-tab ul.tabs li{width:100%;float:none;display:block}#my-tab ul.tabs li a{border-width:1px 1px 0px 1px!important;}#my-tab ul.tabs li:first-child a{border-width:1px 1px 0px 1px!important;}#my-tab ul.tabs,#my-tab ul.tabs li{height:auto}#tab-1,#tab-2,#tab-3,#tab-4{padding:25px 15px 35px 15px;}}</style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script>$(document).ready(function(){$("ul.tabs").each(function(){var t,i,a=$(this).find("a");t=a.first().addClass("active"),i=$(t.attr("href")),a.not(":first").each(function(){$($(this).attr("href")).hide()}),$(this).find("a").click(function(a){return t.removeClass("active"),i.hide(),t=$(this),i=$($(this).attr("href")),t.addClass("active"),i.show(),!1})})});</script>
+    <div id="my-tab" class="my-tab">
+     <ul class="tabs">
+     {% if section.settings.titre_onglet1 != blank %}  
+     	<li><a href="#tab-1">{{ section.settings.titre_onglet1 }}</a></li>
+     {% endif %}  
+     {% if section.settings.titre_onglet2 != blank %}    
+     	<li><a href="#tab-2">{{ section.settings.titre_onglet2 }}</a> </li>
+     {% endif %}    
+     {% if section.settings.titre_onglet3 != blank %}   
+     	<li><a href="#tab-3">{{ section.settings.titre_onglet3 }}</a> </li>
+     {% endif %}    
+     {% if section.settings.titre_onglet4 != blank %}   
+     	<li><a href="#tab-4">{{ section.settings.titre_onglet4 }}</a> </li>
+     {% endif %}    
+      </ul> 
+     <div id="tab-1">
+     	{{ product.description }}  
+     </div>
+     {% if section.settings.titre_onglet2 != blank %} 
+       <div id="tab-2">
+       {% if section.settings.avis_onglet == "2" %}
+         <div id="looxReviews" data-product-id="{{product.id}}">{{ product.metafields.loox.reviews }}</div>
+         <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+         <div class="ryviu-show-reviews" product-handle="{{product.handle}}">{{product.metafields.ryviu.reviews}}</div>
+         <div id="shopify-ali-review" product-id="{{ product.id }}">{{ shop.metafields.review_collector.review_code }}</div>
+       {% else %}
+         {{ section.settings.text_onglet2 }}
+       {% endif %}  
+       </div>
+     {% endif %} 
+     {% if section.settings.titre_onglet3 != blank %}  
+       <div id="tab-3">
+         {% if section.settings.avis_onglet == "3" %}
+           <div id="looxReviews" data-product-id="{{product.id}}">{{ product.metafields.loox.reviews }}</div>
+           <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+           <div class="ryviu-show-reviews" product-handle="{{product.handle}}">{{product.metafields.ryviu.reviews}}</div>
+           <div id="shopify-ali-review" product-id="{{ product.id }}">{{ shop.metafields.review_collector.review_code }}</div>
+         {% else %}
+           {{ section.settings.text_onglet3 }}
+         {% endif %}  
+       </div> 
+     {% endif %}
+     {% if section.settings.titre_onglet4 != blank %}   
+        <div id="tab-4">
+          {% if section.settings.avis_onglet == "4" %}
+           <div id="looxReviews" data-product-id="{{product.id}}">{{ product.metafields.loox.reviews }}</div>
+           <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+           <div class="ryviu-show-reviews" product-handle="{{product.handle}}">{{product.metafields.ryviu.reviews}}</div>
+           <div id="shopify-ali-review" product-id="{{ product.id }}">{{ shop.metafields.review_collector.review_code }}</div>
+          {% else %}
+           {{ section.settings.text_onglet4 }}
+          {% endif %}  
+         </div> 
+      {% endif %}
+    </div> 
+   {% if section.settings.social_sharing_products %}
+      {% include 'social-sharing' %}
+    {% endif %}
+  </div>
+  {% else %}
+   <div class="product-description rte classic-product-description" itemprop="description">
+      {{ product.description }}
+      {% if section.settings.social_sharing_products %}
+      	{% include 'social-sharing' %}
+      {% endif %}
+   </div>
+ {% endif %} 
+    
+  {% if section.settings.avis_onglet == "0" %}
+    <div id="looxReviews" data-product-id="{{product.id}}">{{ product.metafields.loox.reviews }}</div>
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    <div class="ryviu-show-reviews" product-handle="{{product.handle}}">{{product.metafields.ryviu.reviews}}</div>
+    <div id="shopify-ali-review" product-id="{{ product.id }}">{{ shop.metafields.review_collector.review_code }}</div>
+  {% endif %}
+
+{% if section.settings.related_products_enable %}
+  {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+  {% include 'related-products' %}
+{% endif %}
+
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  {% if section.settings.product_quantity_message or section.settings.product_incoming_message %}
+    <script type="application/json" id="VariantJson-{{ section.id }}">
+      [
+        {% for variant in product.variants %}
+          {
+             "incoming": {% if variant.incoming == 'null' or variant.next_incoming_date == null %}false{% else %}{{ variant.incoming | default: false | json }}{% endif %},
+             "next_incoming_date": {{ variant.next_incoming_date | date: format: 'month_day_year' | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    </script>
+  {% endif %}
+{% endunless %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product",
+    "class": "product-template-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_image_zoom_enable",
+        "label": "Activer le zoom sur l'image"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_quantity_enable",
+        "label": "Afficher le sélecteur de quantité"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_vendor_enable",
+        "label": "Afficher le vendeur du produit"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_saved_amount",
+        "label": "Afficher le pourcentage de réduction",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_compare_at_price",
+        "label": "Afficher le prix barré",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "size_title",
+        "label": "Taille du titre du produit",
+        "min": 9,
+        "max": 25,
+        "step": 1,
+        "default": 17
+      },
+      {
+        "type": "range",
+        "id": "size_price",
+        "label": "Taille du prix du produit",
+        "min": 9,
+        "max": 25,
+        "step": 1,
+        "default": 16
+      },
+      {
+        "type": "checkbox",
+        "id": "addToCart-vibrant",
+        "label": "Bouton d'ajout au panier vibrant",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "related_products_enable",
+        "label": "Afficher les produits recommandés"
+      },
+      {
+        "type": "text",
+        "id": "related-product-title",
+        "label": "Texte pour les produits recommandés",
+        "default": "Nous vous recommandons également"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_products",
+        "label": "Activer le partage sur les réseaux sociaux",
+        "default": true
+      },
+  	  {
+        "type": "header",
+        "content": "Customisation de la page produit"
+      },
+  	  {
+        "type": "image_picker",
+        "id": "logo_secure",
+        "label": "Image de paiement sécurisé"
+      },
+  	  {
+        "type": "checkbox",
+        "id": "logo_secure_center",
+        "label": "Centrer l'image de paiement sécurisé",
+        "default": false
+      },
+  	  {
+        "type": "select",
+        "id": "logo_secure_size",
+        "label": "Taille de l'image de paiement sécurisé",
+        "options": [
+          {
+            "value": "200",
+            "label": "Petit"
+          },
+          {
+            "value": "400",
+            "label": "Moyen"
+          },
+  		  {
+            "value": "600",
+            "label": "Grand"
+          }
+		]
+      },
+      {
+        "type": "text",
+        "id": "trust_text",
+        "label": "Texte customisable"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_trust",
+        "label": "Badges de confiance"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_trust_center",
+        "label": "Centrer l'image de badges de confiance",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "logo_trust_size",
+        "label": "Taille de l'image 'Badges de confiance'",
+        "options": [
+          {
+            "value": "200",
+            "label": "Petit"
+          },
+          {
+            "value": "400",
+            "label": "Moyen"
+          },
+  		  {
+            "value": "600",
+            "label": "Grand"
+          }
+		]
+      },
+	  {
+        "type": "header",
+        "content": "Description à onglets"
+      },
+      {
+        "type": "checkbox",
+        "id": "description_onglet",
+        "label": "Activer les onglets pour la description ?",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "titre_onglet1",
+        "label": "Titre onglet 1 (Description du produit)",
+		"default": "Description"
+      },
+      {
+        "type": "text",
+        "id": "titre_onglet2",
+        "label": "Titre onglet 2"
+      },
+       {
+        "type": "richtext",
+        "id": "text_onglet2",
+        "label": "Texte onglet 2"
+      },
+      {
+        "type": "text",
+        "id": "titre_onglet3",
+        "label": "Titre onglet 3"
+      },
+      {
+        "type": "richtext",
+        "id": "text_onglet3",
+        "label": "Texte onglet 3"
+      },
+      {
+        "type": "text",
+        "id": "titre_onglet4",
+        "label": "Titre onglet 4"
+      },
+      {
+        "type": "richtext",
+        "id": "text_onglet4",
+        "label": "Texte onglet 4"
+      },
+      {
+        "type": "select",
+        "id": "avis_onglet",
+        "label": "Avis clients dans un onglet",
+        "options": [
+          {
+            "value": "0",
+            "label": "Non"
+          },
+  		  {
+            "value": "2",
+            "label": "Onglet 2"
+          },
+          {
+            "value": "3",
+            "label": "Onglet 3"
+          },
+          {
+            "value": "4",
+            "label": "Onglet 4"
+          }
+		]
+      }
+    ]
+  }
+{% endschema %}

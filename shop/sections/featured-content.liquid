@@ -1,0 +1,69 @@
+{% if section.settings.display_hr %}
+	<hr>
+{% endif %}
+<div class="rich-text {% if section.settings.center_text %}center-text{% endif %}" >
+  {% if section.settings.section_title != blank %}
+    <div class="section-header rich-text__heading rich-text__heading--{{ section.settings.text_size }}">
+      <p class="h1">{{ section.settings.section_title | escape }}</p>
+    </div>
+  {% endif %}
+  {% if section.settings.text != blank %}
+    <div class="rte rich-text__text--{{ section.settings.text_size }}">
+      {{ section.settings.text }}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+	{
+	  "name": "Rich text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Titre"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Texte"
+      },
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": "Taille",
+        "default": "medium",
+        "options": [
+          {
+            "label": "Petit",
+            "value": "small"
+          },
+          {
+            "label": "Moyen",
+            "value": "medium"
+          },
+          {
+            "label": "Large",
+            "value": "large"
+          }
+        ]
+      },
+	  {
+        "type": "checkbox",
+        "id": "center_text",
+        "label": "Centrer le texte"
+      },
+	  {
+        "type": "checkbox",
+        "id": "display_hr",
+        "label": "Afficher la bordure au dessus"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Rich text",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

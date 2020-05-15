@@ -1,0 +1,14 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}<div style="clear: both;"><div id="shopify-ali-review" product-id="{{ product.id }}"> {{ shop.metafields.review_collector.review_code }} </div></div>					
+<!-- RYVIU APP :: WIDGET -->
+<div class="lt-block-reviews"> 
+	<ryviu-widget  
+	    handle="{{product.handle}}"
+	    title_product="{{product.title}}"
+	    total_meta="{{ product.metafields.ryviu.r_count }}"
+		image_product="{{ product.featured_image.src | img_url: '180x' }}"></ryviu-widget>
+</div>
+<!-- / RYVIU APP -->

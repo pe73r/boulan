@@ -1,0 +1,169 @@
+{% if section.settings.show_announcement and section.settings.announcement_text != blank %}
+<div class="top-bar" style="background-color:{{section.settings.color_background_bar}};color:{{section.settings.color_text_bar}};font-size:{{section.settings.top_bar_size_text}}px;">
+  {% if section.settings.show_announcement %}
+              <p>{{ section.settings.announcement_text | escape }}
+              {% if section.settings.announcement_link != blank %}
+  				<a class="button btn" style="background-color:{{section.settings.color_button_background}};color:{{section.settings.color_button}};font-size:{{section.settings.top_bar_size_text_button}}px;" href="{{ section.settings.announcement_link }}">
+                	{{section.settings.text_button}}
+                  <i class="icon icon-arrow-right"></i>
+                </a>
+              {% endif %}
+              </p>  
+            {% endif %}
+</div>
+{% endif %}
+
+{% if section.settings.header_version == 'classic' %}
+    {% include 'header-classic' %}
+{% else if section.settings.header_version == 'version1' %}
+	{% include 'header_version1' %}
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "class": "header-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Type de header"
+      },
+	  {
+        "type": "select",
+        "id": "header_version",
+        "label": "Version du header",
+        "options": [
+          {
+            "value": "classic",
+            "label": "Classique"
+          },
+          {
+            "value": "version1",
+            "label": "Optimisé"
+          }
+		]
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom logo",
+        "info": "400px wide .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Custom logo width",
+        "default": "305"
+      },
+      {
+        "type": "header",
+        "content": "Barre en haut de page"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Afficher la barre",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Texte de la barre",
+        "default": "Texte ici"
+      },
+      {
+		"type": "text",
+        "id": "top_bar_size_text",
+        "label": "Taille du texte",
+        "default": "16"
+      },
+	  {
+        "type": "color",
+        "id": "color_background_bar",
+        "label": "Couleur de fond",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_text_bar",
+        "label": "Couleur du texte",
+        "default": "#ffffff"
+      },
+	  {
+        "type": "header",
+        "content": "Bouton haut de page"
+      },
+       {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Lien du bouton",
+        "info": "Optional"
+      },
+	   {
+        "type": "color",
+        "id": "color_button",
+        "label": "Couleur du texte du bouton",
+        "default": "#000000"
+      },
+	   {
+        "type": "color",
+        "id": "color_button_background",
+        "label": "Couleur de fond du bouton",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "text_button",
+        "label": "Texte du bouton",
+        "default": "Texte ici"
+      },
+  	  {
+		"type": "text",
+        "id": "top_bar_size_text_button",
+        "label": "Taille du texte du bouton",
+        "default": "14"
+      },
+ 	  {
+        "type": "header",
+        "content": "Image dans le header"
+      },
+ 	  {
+        "type": "image_picker",
+        "id": "header_image_paiement",
+        "label": "Image dans le header"
+      },
+	  {
+        "type": "header",
+        "content": "Options du menu optimisé"
+      },
+ 	  {
+        "type": "text",
+        "id": "header_optimised_phone",
+        "label": "Numéro de téléphone"
+      },
+	  {
+        "type": "text",
+        "id": "header_optimised_mail",
+        "label": "Email de contact"
+      },
+	  {
+        "type": "checkbox",
+        "id": "menu_position",
+        "label": "Centrer le menu",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

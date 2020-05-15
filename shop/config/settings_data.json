@@ -1,0 +1,822 @@
+{
+  "current": {
+    "color_primary": "#1c1313",
+    "color_secondary": "#ffffff",
+    "color_accent": "#545454",
+    "color_promo": "#000000",
+    "color_btn": "#e8b500",
+    "color_body_bg": "#ffffff",
+    "color_borders": "#dedede",
+    "product_reviews_star_color": "#e5c649",
+    "color_header_background": "#ffffff",
+    "color_header_text": "#000000",
+    "color_header_cart_search": "#dedede",
+    "color_nav_bg": "#ffffff",
+    "color_nav_text": "#000000",
+    "color_body_text": "#313131",
+    "color_heading_text": "#090909",
+    "color_footer_bg": "#1c1313",
+    "color_footer_text": "#f4f4f4",
+    "color_footer_social_link": "#ffffff",
+    "type_base_family": "Google_Lato_400,700_sans",
+    "type_base_size": "14px",
+    "type_header_family": "Google_Lato_700_sans",
+    "type_header_transform": false,
+    "type_accent_family": "Google_Montserrat_400_sans",
+    "type_navigation_size": "16px",
+    "type_navigation_transform": true,
+    "type_button_size": "14px",
+    "type_button_transform": true,
+    "favicon": "shopify:\/\/shop_images\/kisspng-baguette-bakery-croissant-clip-art-baguette-cliparts-5a7968970f6b68.9498293015179060710632.png",
+    "cart_notes_enable": true,
+    "paiement_enable": true,
+    "image_paiement": "",
+    "text_extra": "Codes promos à renseigner à l'étape suivante.",
+    "ajax_cart_method": "page",
+    "share_image": "",
+    "social_twitter_link": "https:\/\/twitter.com\/i_Boulange",
+    "social_facebook_link": "https:\/\/www.facebook.com\/iboulange\/",
+    "social_pinterest_link": "",
+    "social_google_plus_link": "",
+    "social_instagram_link": "",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "social_sharing_style": "is-default",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": false,
+    "superscript_decimals": false,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Logo_V5_7368f9ea-b7d1-4016-a6d4-cc384a5789c3.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#1990c6",
+    "checkout_error_color": "#ff6d6d",
+    "type_base_size_title": "19px",
+    "type_base_size_price": "25px",
+    "collection_sidebar_filters": "tags",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_version": "version1",
+          "menu": "main-menu",
+          "logo": "shopify:\/\/shop_images\/iboulange_logo.png",
+          "logo_max_width": "200",
+          "show_announcement": true,
+          "announcement_text": "La garantie iBoulange",
+          "top_bar_size_text": "16",
+          "color_background_bar": "#dba322",
+          "color_text_bar": "#ffffff",
+          "announcement_link": "shopify:\/\/pages\/la-garantie-iboulange",
+          "color_button": "#000000",
+          "color_button_background": "#ffffff",
+          "text_button": "En savoir plus",
+          "top_bar_size_text_button": "9",
+          "header_image_paiement": "",
+          "header_optimised_phone": "",
+          "header_optimised_mail": "contact@iboulange.com",
+          "menu_position": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1544531906070": {
+            "type": "menu",
+            "settings": {
+              "display-block": false,
+              "title": "",
+              "menu": "footer",
+              "width": "16%"
+            }
+          }
+        },
+        "block_order": [
+          "1544531906070"
+        ],
+        "settings": {
+          "social_enabled": true,
+          "legal_menu": "footer"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "disabled": true,
+        "blocks": {
+          "slide-0": {
+            "type": "image",
+            "settings": {
+              "slide": "shopify:\/\/shop_images\/victor-rodriguez-iglesias-487137-unsplash.jpg"
+            }
+          },
+          "1520876672186": {
+            "type": "image",
+            "settings": {
+              "slide": "shopify:\/\/shop_images\/IMG_0989.JPG"
+            }
+          },
+          "1520940400313": {
+            "type": "image",
+            "settings": {
+              "slide": "shopify:\/\/shop_images\/Pain3.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "slide-0",
+          "1520876672186",
+          "1520940400313"
+        ],
+        "settings": {
+          "slider_home_auto": false,
+          "slider_home_rate": "5000"
+        }
+      },
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "collection-list-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "protection"
+            }
+          },
+          "1510859757784": {
+            "type": "collection",
+            "settings": {
+              "collection": "machine-cuisine"
+            }
+          },
+          "1510859764423": {
+            "type": "collection",
+            "settings": {
+              "collection": "balances"
+            }
+          },
+          "collection-list-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "chariot"
+            }
+          }
+        },
+        "block_order": [
+          "collection-list-1",
+          "1510859757784",
+          "1510859764423",
+          "collection-list-0"
+        ],
+        "settings": {
+          "nb_collection_row": 4,
+          "size_title": 20,
+          "section_title": "Nos collections",
+          "section_text": "Découvrir toutes nos collections",
+          "display_hr": true
+        }
+      },
+      "featured-content": {
+        "type": "featured-content",
+        "disabled": true,
+        "settings": {
+          "section_title": "iboulange.com",
+          "text": "<p><em>Int&eacute;grez l'univers internet de la boulangerie p&acirc;tisserie, snacking!<\/em><\/p>\n<p><\/p>\n<p>iBoulange est la plateforme de r&eacute;f&eacute;rence de la boulangerie artisanale. Notre &eacute;quipe d&rsquo;expert est &agrave; votre disposition pour tous vos besoins.<\/p>",
+          "text_size": "large",
+          "center_text": true,
+          "display_hr": false
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1528877780330": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1528877782521": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1528877784638": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1528877785716": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1528877780330",
+          "1528877782521",
+          "1528877784638",
+          "1528877785716"
+        ],
+        "settings": {
+          "display_type": "all",
+          "layout": "grid",
+          "sort": "alphabetical",
+          "grid": "4"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "grid": "4",
+          "rows": "5",
+          "collection_sidebar_filters": "tags",
+          "product_show_compare_at_price": true,
+          "product_show_saved_amount": false,
+          "product_reviews_enable": false,
+          "enable_sidebar": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "product_image_zoom_enable": true,
+          "product_quantity_enable": true,
+          "product_vendor_enable": false,
+          "product_show_saved_amount": true,
+          "product_show_compare_at_price": true,
+          "size_title": 23,
+          "size_price": 12,
+          "addToCart-vibrant": true,
+          "related_products_enable": true,
+          "related-product-title": "Nous vous recommandons également",
+          "social_sharing_products": true,
+          "logo_secure": "shopify:\/\/shop_images\/banniere_paiement_9aca9c37-98a1-4199-9fac-b342fd0f931d.jpg",
+          "logo_secure_center": false,
+          "logo_secure_size": "600",
+          "trust_text": "4 raisons de commander chez nous :",
+          "logo_trust": "shopify:\/\/shop_images\/banniere_rassurance.jpg",
+          "logo_trust_center": true,
+          "logo_trust_size": "600",
+          "description_onglet": true,
+          "titre_onglet1": "Description",
+          "titre_onglet2": "Livraison",
+          "text_onglet2": "<p>Pour tout article des rubriques \"Petits Mat&eacute;riels\" et \"Pi&egrave;ces D&eacute;tach&eacute;es\" nous essayons dans la mesure du possible de stocker les produits afin de vous proposer un d&eacute;lai de livraison rapide. A contrario les commandes de \"Machines\" sont envoy&eacute;es directement depuis le producteur et doivent int&eacute;grer le d&eacute;laie fabrication, d'o&ugrave; des d&eacute;lais plus longs.<\/p>\n<p><strong>D&eacute;lais de Livraison<\/strong><\/p>\n<p>Nos d&eacute;lais moyens de livraison sont de 1 &agrave; 3 semaines sauf lorsque le d&eacute;lai est sp&eacute;cifi&eacute; dans la description du produit. Si vous n'&ecirc;tes pas en Europe, pr&eacute;voyez quelques jours suppl&eacute;mentaires avant de recevoir votre objet.<\/p>\n<p><strong>Frais de Livraison<\/strong><\/p>\n<p>Nous avons 3 paliers de frais de livraison: commande inf&eacute;rieure &agrave; 36 EUR HT: frais mini de 9,50 EUR. Jusqu'&agrave; 349,99 EUR HT de commande les frais de livraison sont de 29 EUR. Au del&agrave; les frais de livraison sont OFFERTS. Hors articles aux poids et dimensions sp&eacute;cifiques indiqu&eacute;s dans le descriptif produit.<\/p>\n<p><strong>Pr&eacute;cision importante<\/strong><\/p>\n<p>&Eacute;tant donn&eacute; que nous travaillons avec diff&eacute;rents producteurs, si vous avez command&eacute; plusieurs produits, ils arriveront probablement chez vous dans des colis diff&eacute;rents. Pas d'inqui&eacute;tude donc si vous en recevez un avant l'autre.<\/p>\n<p><strong>Encore des questions ?<\/strong><\/p>\n<p>Si vous avez encore la moindre question, vous pouvez nous contacter par email &agrave; EMAIL.<\/p>",
+          "titre_onglet3": "Paiements",
+          "text_onglet3": "<p>Notre boutique utilise la technologie de cryptage SSL qui vous offre une s&eacute;curit&eacute; maximale, notamment sur la protection des donn&eacute;es pour les services bancaires en ligne.<\/p>\n<p>Vous pouvez r&eacute;gler votre commande par Carte Bancaire (CB, Visa ou Mastercard), par compte Paypal ou par virement.<\/p>\n<p>Pour tout besoin de financement &agrave; partir de 2.000 EUR HT, merci de nous contacter pour une mise en relation avec notre r&eacute;seau de courtiers.<\/p>",
+          "titre_onglet4": "Avis clients",
+          "text_onglet4": "",
+          "avis_onglet": "4"
+        }
+      },
+      "collection-rows": {
+        "type": "collection-rows",
+        "settings": {
+          "title": "Collection Wea",
+          "home_featured_row": "",
+          "size_title_section": 17,
+          "size_title": 17,
+          "size_price": 16,
+          "grid": 4,
+          "rows": 1,
+          "product_show_saved_amount": false,
+          "link_collection": "",
+          "product_show_compare_at_price": true
+        }
+      },
+      "1521049723529": {
+        "type": "collection-rows",
+        "disabled": true,
+        "settings": {
+          "title": "Titre collection",
+          "home_featured_row": "",
+          "size_title_section": 17,
+          "size_title": 17,
+          "size_price": 16,
+          "grid": 4,
+          "rows": 1,
+          "product_show_saved_amount": false,
+          "link_collection": "Découvrir la collection",
+          "product_show_compare_at_price": true
+        }
+      },
+      "1521191094929": {
+        "type": "image-with-text",
+        "disabled": true,
+        "settings": {
+          "image": "",
+          "layout": "left",
+          "center_bloc": true,
+          "title": "Image with text",
+          "size_title": 17,
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "size_text": 16,
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1521191103624": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Inscrivez-vous à notre newsletter",
+          "subtext": "Recevez les nouveautés et reportages",
+          "rgpd_newsletter": "<p>En renseignant votre adresse email, vous acceptez de recevoir chaque semaine nos offres commerciales par courrier &eacute;lectronique et vous prenez connaissance de notre <a href=\"\/pages\/politique-de-confidentialite\" title=\"Politique de confidentialit&eacute;\">Politique de confidentialit&eacute;<\/a>.<\/p>\n<p><\/p>\n<p>Vous pouvez vous d&eacute;sinscrire &agrave; tout moment &agrave; l'aide des liens de d&eacute;sinscription ou en nous contactant &agrave; l'adresse <strong>contact@iboulange.fr<\/strong><\/p>",
+          "color_background": "#c3c3c3",
+          "color_text": "#ffffff",
+          "color_button": "#262626"
+        }
+      },
+      "search-template": {
+        "type": "search-template",
+        "settings": {
+          "product_show_compare_at_price": false,
+          "product_show_saved_amount": true
+        }
+      },
+      "contact": {
+        "type": "contact",
+        "settings": {
+          "rgpd_contact": "En cochant cette case et en soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter dans le cadre de ma demande indiquée dans ce formulaire. Aucun autre traitement ne sera effectué avec mes informations.",
+          "rgpd_contact_info": "<p>Pour connaitre et exercer vos droits, notamment de retrait de votre consentement &agrave; l'utilisation de donn&eacute;es collect&eacute;es par ce formulaire, veuillez consulter notre <a href=\"\/pages\/politique-de-confidentialite\" title=\"Politique de confidentialit&eacute;\">Politique de confidentialit&eacute;<\/a>.<\/p>"
+        }
+      },
+      "1528877584799": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/yohan-cho-1154540-unsplash.jpg",
+          "layout": "right",
+          "center_bloc": false,
+          "title": "Pourquoi iBoulange?",
+          "size_title": 17,
+          "text": "<p>Il fait tr&egrave;s chaud sur les bords du Nil en cette soir&eacute;e d&rsquo;&eacute;t&eacute; de p&eacute;riode pr&eacute;historique. Brun, notre homme de N&eacute;anderthal, se pr&eacute;pare une bouillie compos&eacute;e des diff&eacute;rentes plantes qu&rsquo;il a trouv&eacute; au bord du chemin&nbsp;compos&eacute;e essentiellement de foug&egrave;res et de plantes c&eacute;r&eacute;ali&egrave;res.<\/p>\n<p>Fatigu&eacute;, Brun s&rsquo;endort, laissant sa bouillie renvers&eacute;e chauffer sur une pierre chaude&nbsp;: sans le vouloir Brun venait de r&eacute;volutionner la gastronomie de son &eacute;poque et d&rsquo;inventer le pain.<\/p>\n<p>Des milliers d&rsquo;ann&eacute;es plus tard, la boulangerie moderne est une activit&eacute; d&eacute;velopp&eacute;e qui nourri une tr&egrave;s grande partie de la population. Elle rayonne &agrave; travers tous les pays, sous de nombreuses formes diff&eacute;rentes. iBoulange &agrave; le d&eacute;sir de devenir votre portail de r&eacute;f&eacute;rences pour l&rsquo;&eacute;quipement de mat&eacute;riel de boulangerie, p&acirc;tisserie et snacking.<\/p>\n<p>Notre &eacute;quipe de professionnels parcourt la France, l&rsquo;Europe et ailleurs&nbsp;pour vous donner acc&egrave;s aux meilleurs &eacute;quipements au prix le plus juste ainsi que toutes les nouveaut&eacute;s vous permettant de continuer &agrave; alimenter vos clients en bons pains et g&acirc;teaux originaux. Parce que Brun aurait surement pr&eacute;f&eacute;r&eacute; acheter sa pierre sur iBoulange que la d&eacute;couvrir par hasard, nous mettons tout en &oelig;uvre pour que vous puissiez proposer le meilleur &agrave; vos clients. Bonne visite.<\/p>",
+          "size_text": 13,
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1528877641546": {
+        "type": "collection-rows",
+        "disabled": true,
+        "settings": {
+          "title": "Titre collection",
+          "home_featured_row": "",
+          "size_title_section": 17,
+          "size_title": 17,
+          "size_price": 16,
+          "grid": 4,
+          "rows": 1,
+          "product_show_saved_amount": true,
+          "link_collection": "Découvrir la collection",
+          "product_show_compare_at_price": false
+        }
+      },
+      "1544526837424": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "detecteur-temperature-thermo-controle",
+          "size_title": 17,
+          "size_price": 16,
+          "product_description": "",
+          "product_quantity_enable": false,
+          "product_vendor_enable": false,
+          "product_image_zoom_enable": false,
+          "more_info": "",
+          "social_sharing_products": false
+        }
+      },
+      "1544527097380": {
+        "type": "video",
+        "disabled": true,
+        "settings": {
+          "heading": "Video",
+          "video_url": ""
+        }
+      },
+      "1544532505062": {
+        "type": "collection-rows",
+        "settings": {
+          "title": "Bonnes affaires",
+          "home_featured_row": "pelle-racloir",
+          "size_title_section": 20,
+          "size_title": 17,
+          "size_price": 13,
+          "grid": 4,
+          "rows": 1,
+          "product_show_saved_amount": true,
+          "link_collection": "",
+          "product_show_compare_at_price": true
+        }
+      },
+      "1544533079305": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1544533079305-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div style=\"text-align:center;\">\n<h2>Use HTML to format your text so it can be easily read.<\/h2>This text can be used to share information about your brand with customers.<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1544533079305-0"
+        ],
+        "settings": {
+        }
+      },
+      "presentation": {
+        "type": "presentation",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "slideshow",
+      "featured-content",
+      "collection-list",
+      "1528877641546",
+      "1521049723529",
+      "1528877584799",
+      "1521191094929",
+      "1544526837424",
+      "1544527097380",
+      "1544532505062",
+      "1521191103624",
+      "1544533079305"
+    ]
+  },
+  "presets": {
+    "Blue": {
+      "ajax_cart_method": "modal",
+      "cart_notes_enable": false,
+      "collection_sidebar_filters": "tags",
+      "color_accent": "#dd2525",
+      "color_body_bg": "#fff",
+      "color_body_text": "#585858",
+      "color_borders": "#ececec",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_header_background": "#182e49",
+      "color_header_cart_search": "#0f243d",
+      "color_header_text": "#fff",
+      "color_heading_text": "#000",
+      "color_nav_bg": "#182e49",
+      "color_nav_text": "#fff",
+      "color_primary": "#528ec1",
+      "color_secondary": "#dcdcdc",
+      "share_facebook": true,
+      "share_pinterest": true,
+      "share_twitter": true,
+      "social_facebook_link": "",
+      "social_fancy_link": "",
+      "social_google_plus_link": "",
+      "social_instagram_link": "",
+      "social_pinterest_link": "",
+      "social_sharing_style": "is-normal",
+      "social_snapchat_link": "",
+      "social_tumblr_link": "",
+      "social_twitter_link": "",
+      "social_vimeo_link": "",
+      "social_youtube_link": "",
+      "type_accent_family": "Google_Montserrat_400_sans",
+      "type_base_family": "Google_Montserrat_400,700_sans",
+      "type_base_size": "13px",
+      "type_button_size": "14px",
+      "type_button_transform": true,
+      "type_header_family": "Google_Montserrat_700_sans",
+      "type_header_transform": true,
+      "type_navigation_size": "14px",
+      "type_navigation_transform": true,
+      "superscript_decimals": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo": "",
+            "logo_max_width": "305"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "menu": {
+              "type": "menu",
+              "settings": {
+                "title": "Quick links",
+                "menu": "",
+                "width": "16%"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "title": "Get in touch",
+                "richtext": "<p>Use this text to share information about your brand with your customers.<\/p>",
+                "width": "50%"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "width": "33%"
+              }
+            }
+          },
+          "block_order": [
+            "menu",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "social_enabled": false,
+            "legal_menu": ""
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slide-0": {
+              "type": "image",
+              "settings": {
+                "slide": ""
+              }
+            },
+            "slide-1": {
+              "type": "image",
+              "settings": {
+                "slide": ""
+              }
+            },
+            "slide-2": {
+              "type": "image",
+              "settings": {
+                "slide": ""
+              }
+            }
+          },
+          "block_order": [
+            "slide-0",
+            "slide-1",
+            "slide-2"
+          ],
+          "settings": {
+            "slider_home_auto": false,
+            "slider_home_rate": "5000"
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1"
+          ],
+          "settings": {
+          }
+        },
+        "collection-row-1": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        },
+        "collection-row-2": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        },
+        "collection-row-3": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "collection-list",
+        "collection-row-1",
+        "collection-row-2",
+        "collection-row-3"
+      ]
+    },
+    "Light": {
+      "ajax_cart_method": "modal",
+      "cart_notes_enable": false,
+      "collection_sidebar_filters": "tags",
+      "color_accent": "#545454",
+      "color_body_bg": "#f3f3f3",
+      "color_body_text": "#858585",
+      "color_borders": "#dedede",
+      "color_footer_bg": "#ffffff",
+      "color_footer_social_link": "#545454",
+      "color_footer_text": "#545454",
+      "color_header_background": "#ffffff",
+      "color_header_cart_search": "#f3f3f3",
+      "color_header_text": "#545454",
+      "color_heading_text": "#2f2f2f",
+      "color_nav_bg": "#9c756f",
+      "color_nav_text": "#ffffff",
+      "color_primary": "#9c756f",
+      "color_secondary": "#f3f3f3",
+      "share_facebook": true,
+      "share_pinterest": true,
+      "share_twitter": true,
+      "social_facebook_link": "",
+      "social_google_plus_link": "",
+      "social_instagram_link": "",
+      "social_sharing_style": "is-normal",
+      "social_twitter_link": "",
+      "type_accent_family": "Google_Lato_700_sans",
+      "type_base_family": "Google_Roboto_400,700_sans",
+      "type_base_size": "14px",
+      "type_button_size": "14px",
+      "type_button_transform": true,
+      "type_header_family": "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
+      "type_header_transform": false,
+      "type_navigation_size": "14px",
+      "type_navigation_transform": true,
+      "superscript_decimals": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo": "",
+            "logo_max_width": "305"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "menu": {
+              "type": "menu",
+              "settings": {
+                "title": "Quick links",
+                "menu": "",
+                "width": "16%"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "title": "Get in touch",
+                "richtext": "<p>Use this text to share information about your brand with your customers.<\/p>",
+                "width": "50%"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "width": "33%"
+              }
+            }
+          },
+          "block_order": [
+            "menu",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "social_enabled": false,
+            "legal_menu": ""
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slide-0": {
+              "type": "image",
+              "settings": {
+                "slide": ""
+              }
+            }
+          },
+          "block_order": [
+            "slide-0"
+          ],
+          "settings": {
+            "slider_home_auto": false,
+            "slider_home_rate": "5000"
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1"
+          ],
+          "settings": {
+          }
+        },
+        "collection-row-1": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        },
+        "collection-row-2": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        },
+        "collection-row-3": {
+          "type": "collection-rows",
+          "settings": {
+            "home_featured_row": "",
+            "grid": 4,
+            "rows": 1
+          }
+        },
+        "featured-content": {
+          "type": "featured-content",
+          "settings": {
+          }
+        },
+        "slideshow-2": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-2-0": {
+              "type": "image",
+              "settings": {
+                "slide": ""
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-2-0"
+          ],
+          "settings": {
+            "slider_home_auto": false,
+            "slider_home_rate": "5000"
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "collection-list",
+        "collection-row-1",
+        "collection-row-2",
+        "collection-row-3",
+        "slideshow-2",
+        "featured-content"
+      ]
+    }
+  }
+}
