@@ -1,0 +1,15 @@
+{% if block.settings.display_hr %}
+	<hr>
+{% endif %}
+<div class="rich-text {% if block.settings.center_text %}center-text{% endif %}" >
+  {% if block.settings.block_title != blank %}
+    <div class="block-header rich-text__heading rich-text__heading--{{ block.settings.text_size }}">
+      <p class="h1">{{ block.settings.block_title | escape }}</p>
+    </div> 
+  {% endif %}
+  {% if block.settings.text != blank %}
+    <div class="rte rich-text__text--{{ block.settings.text_size }}">
+      {{ block.settings.text }}
+    </div>
+  {% endif %}
+</div>

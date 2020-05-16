@@ -1,0 +1,14 @@
+{% if section.settings.show_announcement and section.settings.announcement_text != blank %}
+  <div class="top-bar" style="background-color:{{section.settings.color_background_bar}};color:{{section.settings.color_text_bar}};font-size:{{section.settings.top_bar_size_text}}px;">
+    {% if section.settings.show_announcement %}
+        <p>{{ section.settings.announcement_text | escape }}
+          {% if section.settings.announcement_link != blank %}
+        		<a class="button btn" style="background-color:{{section.settings.color_button_background}};color:{{section.settings.color_button}};font-size:{{section.settings.top_bar_size_text_button}}px;" href="{{ section.settings.announcement_link }}">
+                {{section.settings.text_button}}
+                <i class="icon icon-arrow-right"></i>
+            </a>
+          {% endif %}
+        </p>
+    {% endif %}
+  </div> 
+{% endif %}

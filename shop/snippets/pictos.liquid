@@ -1,0 +1,26 @@
+<div class="SectionPictos">
+      {% if block.settings.image-1 != blank %}
+        <div class="PictoBlock">
+          <img src="{{ block.settings.image-1 | img_url: 'master' }}" alt="{{ block.settings.image-1.alt }}">
+          <h3>{{ block.settings.text-1 }}</h3>
+        </div>
+      {% endif %}
+      {% if block.settings.image-2 != blank %}
+        <div class="PictoBlock">
+          <img src="{{ block.settings.image-2 | img_url: 'master' }}" alt="{{ block.settings.image-2.alt }}">
+          <h3>{{ block.settings.text-2 }}</h3>
+        </div>
+      {% endif %}
+      {% if block.settings.image-3 != blank %}
+        <div class="PictoBlock">
+          <img src="{{ block.settings.image-3 | img_url: 'master' }}" alt="{{ block.settings.image-3.alt }}">
+          <h3>{{ block.settings.text-3 }}</h3>
+        </div>
+      {% endif %}
+      {% if block.settings.image-4 != blank %}
+        <div class="PictoBlock">
+          <img src="{{ block.settings.image-4 | img_url: 'master' }}" alt="{{ block.settings.image-4.alt }}">
+          <h3>{{ block.settings.text-4 }}</h3>
+        </div>
+      {% endif %} 
+</div>

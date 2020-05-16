@@ -6366,3 +6366,52 @@ $gutter : 20px;
      font-size: 20px;
     }
   }
+
+  /// Featured Product megasection ///
+
+  .BlockFeaturedProduct{
+    margin: 50px 0;
+  }
+
+  .FeaturedProduct__description{
+    font-size: 16px;
+  }
+
+
+/// Pictos megasection ///
+
+  .SectionPictos{
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .PictoBlock{
+    max-width: 200px;
+    margin: auto;
+    text-align: center;
+     &:not(:last-child){
+       margin-right: 40px;
+     }
+
+     img{
+       width: 80px;
+       margin: auto;
+       margin-bottom: 15px;
+     }
+      h3{
+        font-size: 16px;
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+    .SectionPictos{
+      flex-direction: column;
+    }
+    .PictoBlock{
+       &:not(:last-child){
+         margin-right: 0;
+         margin: 15px auto;
+       }
+     }
+  }

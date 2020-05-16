@@ -1,0 +1,45 @@
+<div class="SectionPictos">
+  {% for block in section.blocks %}
+      {% if block.settings.image != blank %}
+        <div class="PictoBlock">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+          <h3>{{ block.settings.text }}</h3>
+        </div>
+      {% endif %}
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Pictos",
+  "max_blocks": 4,
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "picto",
+      "name": "Picto",
+      "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "Lorem Ipsum"
+          }
+      ]
+    }
+  ],
+  "presets": [
+		{
+			"name": "Pictos",
+			"category": "Image"
+		}
+	]
+}
+{% endschema %}

@@ -1,4 +1,4 @@
-<ul class="site-nav {% if section.settings.menu_position %}site-nav-centered{% endif %}" id="AccessibleNav">
+<ul class="site-nav site-nav-centered" id="AccessibleNav">
   {% unless linklists[section.settings.menu].links.first.url == '/' %}
   <li class="large--hide">
     <a href="/">{{ 'general.breadcrumbs.home' | t }}</a>
@@ -7,7 +7,7 @@
   {% for link in linklists[section.settings.menu].links %}
     {% if link.links != blank %}
       {% assign parent_index = forloop.index %}
-      <li 
+      <li
         class="site-nav--has-dropdown {% if link.active %}site-nav--active{% endif %}"
         aria-haspopup="true">
         <a
@@ -46,7 +46,7 @@
                   data-meganav-dropdown>
                   {% for grandchildlink in childlink.links %}
                     <li{% if grandchildlink.active %} class="site-nav--active"{% endif %}>
-                      <a 
+                      <a
                         href="{{ grandchildlink.url }}"
                         class="site-nav--link"
                         data-meganav-type="child"

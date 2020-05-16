@@ -76,8 +76,14 @@
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
-  {% section 'header' %} 
+  {%- if template == 'collection.accessoires' or template == 'product.accessoires' -%}
+    {% section 'header-accessoires' %}
 
+  {%- elsif template == 'collection.materiel' or template == 'product.materiel' -%}
+    {% section 'header-materiel' %}
+  {% else %}
+    {% section 'header' %}
+  {% endif %}
 
   <main class="wrapper main-content" role="main">
 
