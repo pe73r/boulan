@@ -48,7 +48,7 @@
              srcset="{{ product.featured_image | img_url: '580x' }} 1x, {{ product.featured_image | img_url: '580x', scale: 2 }} 2x"
              alt="{{ product.featured_image.alt }}" style="opacity:1;">
          </noscript>
-        
+
         {% else %}
         {{ 'no-image.jpg' | asset_url | img_tag }}
         {% comment %}
@@ -61,10 +61,10 @@
       </div>
     </div>
 
-    <p style="font-size:{{section.settings.size_title}}px!important;">{{ product.title }}</p>
+    <p class="product-item--title" style="">{{ product.title }}</p>
     <div class="ryviu-collection-widget" data="collection_product_reviews" product-handle="{{product.handle}}"></div>
 
-    <div style="font-size:{{section.settings.size_price}}px!important;" class="product-item--price">
+    <div style="" class="product-item--price">
       <span class="h1 medium--left">
         {% if on_sale %}
           <span class="visually-hidden">{{ "products.general.sale_price" | t }}</span>
@@ -84,7 +84,7 @@
         {% endif %}
       </span>
 
-      
+
     </div>
 
     {% if section.settings.product_reviews_enable %}
