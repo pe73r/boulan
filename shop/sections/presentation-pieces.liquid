@@ -1,0 +1,72 @@
+{% if section.settings.display %}
+  <div class="SectionPresentation">
+     <div class="grid {% unless section.settings.image-position == "right" %} grid--rev {% endunless %}">
+       <div class="1/2--lap-and-up grid__cell">
+           <div class="PresentationContent"> 
+              <h1 class="PresentationTitle">{{ section.settings.title }}</h1>
+              <h2 class="PresentationText">{{ section.settings.content }}</h2>
+           </div>
+       </div>
+       <div class="1/2--lap-and-up grid__cell">
+          <div class="PresentationImage">
+            {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+            {% endif %}
+          </div>
+       </div>
+     </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Presentation",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "display",
+        "label": "display section ?",
+        "default": true
+      },
+      {
+         "type":      "select",
+         "id":        "image-position",
+         "label":     "Image position",
+         "options": [
+           {
+             "value": "left",
+             "label": "Left"
+           },
+           {
+             "value": "right",
+             "label": "Right"
+           }
+         ],
+         "default":   "left"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "Soyez originaux pour vos et vos gâteaux"
+      },
+      {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content",
+        "default": "iBoulange sélectionne les meilleurs articles et machines à travers l’Europe  et au-delà pour donner libre cours à l’imagination des artisans dans la créativité de leurs produits</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      }
+  ],
+  "presets": [
+		{
+			"name": "Presentation",
+			"category": "Image"
+		}
+	]
+}
+{% endschema %}

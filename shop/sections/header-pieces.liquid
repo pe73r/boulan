@@ -1,0 +1,132 @@
+
+{% include 'announcement-bar' %}
+{% include 'header_version1' %}
+
+{% schema %}
+  {
+    "name": "Header Pieces",  
+    "class": "header-section",
+    "settings": [
+
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom logo",
+        "info": "400px wide .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Custom logo width",
+        "default": "305"
+      },
+      {
+        "type": "header",
+        "content": "Barre en haut de page"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Afficher la barre",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Texte de la barre",
+        "default": "Texte ici"
+      },
+      {
+		"type": "text",
+        "id": "top_bar_size_text",
+        "label": "Taille du texte",
+        "default": "16"
+      },
+	  {
+        "type": "color",
+        "id": "color_background_bar",
+        "label": "Couleur de fond",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_text_bar",
+        "label": "Couleur du texte",
+        "default": "#ffffff"
+      },
+	  {
+        "type": "header",
+        "content": "Bouton haut de page"
+      },
+       {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Lien du bouton",
+        "info": "Optional"
+      },
+	   {
+        "type": "color",
+        "id": "color_button",
+        "label": "Couleur du texte du bouton",
+        "default": "#000000"
+      },
+	   {
+        "type": "color",
+        "id": "color_button_background",
+        "label": "Couleur de fond du bouton",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "text_button",
+        "label": "Texte du bouton",
+        "default": "Texte ici"
+      },
+  	  {
+		"type": "text",
+        "id": "top_bar_size_text_button",
+        "label": "Taille du texte du bouton",
+        "default": "14"
+      },
+ 	  {
+        "type": "header",
+        "content": "Image dans le header"
+      },
+ 	  {
+        "type": "image_picker",
+        "id": "header_image_paiement",
+        "label": "Image dans le header"
+      },
+	  {
+        "type": "header",
+        "content": "Options du menu optimisé"
+      },
+ 	  {
+        "type": "text",
+        "id": "header_optimised_phone",
+        "label": "Numéro de téléphone"
+      },
+	  {
+        "type": "text",
+        "id": "header_optimised_mail",
+        "label": "Email de contact"
+      },
+	  {
+        "type": "checkbox",
+        "id": "menu_position",
+        "label": "Centrer le menu",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

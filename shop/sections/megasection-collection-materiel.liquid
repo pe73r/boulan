@@ -1,0 +1,321 @@
+{% for block in section.blocks %}
+  {% if block.type == 'presentation' %}
+  	{% include 'presentation' %}
+
+  {% elsif block.type == 'newsletter' %}
+    {% include 'newsletter' %}
+
+  {% elsif block.type == 'richtext' %}
+      {% include 'rich-text' %}
+
+  {% elsif block.type == 'image-text' %}
+    {% include 'image-text' %}
+
+  {% elsif block.type == 'featured-product' %}
+      {% include 'featured-product' %}
+ 
+  {% elsif block.type == 'pictos' %}
+          {% include 'pictos' %}
+
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+    {
+      "name": "Megasection",
+      "settings": [
+
+      ],
+      "blocks": [
+            {
+              "type": "presentation",
+              "name": "Presentation",
+              "settings": [
+              {
+                "type": "textarea",
+                "id": "title",
+                "label": "Title",
+                "default": "Soyez originaux pour vos et vos gâteaux"
+              },
+              {
+                "type": "textarea",
+                "id": "content",
+                "label": "Content",
+                "default": "iBoulange sélectionne les meilleurs articles et machines à travers l’Europe  et au-delà pour donner libre cours à l’imagination des artisans dans la créativité de leurs produits</p>"
+              },
+               {
+                 "type": "image_picker",
+                 "id": "image",
+                 "label": "Image"
+               }
+          ]
+        },
+        {
+          "type": "newsletter",
+          "name": "Newsletter",
+          "settings": [
+              {
+                "type": "text",
+                "id": "heading",
+                "label": "Titre",
+                "default": "S'inscrire à la newsletter"
+              },
+              {
+                "type": "text",
+                "id": "subtext",
+                "label": "Texte",
+                "default": "Recevez en avant première nos offres dans votre boîte mail."
+              },
+              {
+                "type": "richtext",
+                "id": "rgpd_newsletter",
+                "label": "RGPD - Newsletter"
+              },
+              {
+                "type": "color",
+                "id": "color_background",
+                "label": "Couleur de fond",
+                "default": "#d0d0d0"
+              },
+              {
+                "type": "color",
+                "id": "color_text",
+                "label": "Couleur du texte",
+                "default": "#ffffff"
+              },
+              {
+                "type": "color",
+                "id": "color_button",
+                "label": "Couleur du bouton",
+                "default": "#51e800"
+              },
+              {
+                "type": "paragraph",
+                "content": "Chaque visiteur qui s'inscrit sera enregistré dans Shopify. [Voir clients](/admin/customers?query=&accepts_marketing=1)"
+              }
+
+          ]
+        },
+        {
+          "type": "richtext",
+          "name": "Richtext",
+          "settings": [
+              {
+                "type": "text",
+                "id": "block_title",
+                "label": "Titre"
+              },
+              {
+                "type": "richtext",
+                "id": "text",
+                "label": "Texte"
+              },
+              {
+                "type": "select",
+                "id": "text_size",
+                "label": "Taille",
+                "default": "medium",
+                "options": [
+                  {
+                    "label": "Petit",
+                    "value": "small"
+                  },
+                  {
+                    "label": "Moyen",
+                    "value": "medium"
+                  },
+                  {
+                    "label": "Large",
+                    "value": "large"
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "id": "center_text",
+                "label": "Centrer le texte"
+              },
+              {
+                "type": "checkbox",
+                "id": "display_hr",
+                "label": "Afficher la bordure au dessus"
+              }
+          ]
+        },
+        {
+          "type": "image-text",
+          "name": "Image Text",
+          "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Image alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "checkbox",
+            "id": "center_bloc",
+            "label": "Centré le bloc",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Image with text"
+          },
+          {
+            "type": "range",
+            "id": "size_title",
+            "label": "Taille du titre",
+            "min": 9,
+            "max": 25,
+            "step": 1,
+            "default": 17
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          },
+          {
+            "type": "range",
+            "id": "size_text",
+            "label": "Taille du texte",
+            "min": 9,
+            "max": 25,
+            "step": 1,
+            "default": 16
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+         ]
+       },
+       {
+         "type": "featured-product",
+         "name": "Featured Product",
+         "settings": [
+         {
+           "type": "product",
+           "id": "featured_product",
+           "label": "Produit"
+         },
+         {
+           "type": "range",
+           "id": "size_title",
+           "label": "Taille du titre du produit",
+           "min": 9,
+           "max": 25,
+           "step": 1,
+           "default": 17
+         },
+         {
+           "type": "range",
+           "id": "size_price",
+           "label": "Taille du prix du produit",
+           "min": 9,
+           "max": 25,
+           "step": 1,
+           "default": 16
+         },
+         {
+           "type": "textarea",
+           "id": "product_description",
+           "label": "Description du produit"
+         },
+         {
+           "type": "checkbox",
+           "id": "product_image_zoom_enable",
+           "label": "Activer le zoom de l'image"
+         },
+         {
+           "type": "text",
+           "id": "more_info",
+           "label": "Texte lien vers le produit"
+         },
+         {
+           "type": "checkbox",
+           "id": "social_sharing_products",
+           "label": "Afficher les boutons pour les réseaux sociaux",
+           "default": true,
+           "info": "Editer les réseaux sociaux dans les 'Settings General'"
+         }
+        ]
+      },
+      {
+        "type": "pictos",
+        "name": "Pictos",
+        "settings": [
+            {
+              "type": "image_picker",
+              "id": "image-1",
+              "label": "image-1"
+            },
+            {
+              "type": "text",
+              "id": "text-1",
+              "label": "Text 1",
+              "default": "Paiement sécurisé"
+            },
+            {
+              "type": "image_picker",
+              "id": "image-2",
+              "label": "image-2"
+            },
+            {
+              "type": "text",
+              "id": "text-2",
+              "label": "Text 2",
+              "default": "100% garantié"
+            },
+            {
+              "type": "image_picker",
+              "id": "image-3",
+              "label": "image-3"
+            },
+            {
+              "type": "text",
+              "id": "text-3",
+              "label": "Text 3",
+              "default": "Financement possible"
+            },
+            {
+              "type": "image_picker",
+              "id": "image-4",
+              "label": "image-4"
+            },
+            {
+              "type": "text",
+              "id": "text-4",
+              "label": "Text 4",
+              "default": "Installation possible"
+            }
+        ]
+      }
+     ]
+}
+{% endschema %}

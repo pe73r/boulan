@@ -76,11 +76,15 @@
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
-  {%- if template == 'collection.accessoires' or template == 'product.accessoires' -%}
+  {%- if template == 'page.accessoires' or template == 'collection.accessoires' or template == 'product.accessoires' -%}
     {% section 'header-accessoires' %}
 
-  {%- elsif template == 'collection.materiel' or template == 'product.materiel' -%}
+  {%- elsif template == 'page.materiel' or template == 'collection.materiel' or template == 'product.materiel' -%}
     {% section 'header-materiel' %}
+
+  {%- elsif template == 'page.pieces' or template == 'collection.pieces' or template == 'product.pieces' -%}
+    {% section 'header-pieces' %}
+
   {% else %}
     {% section 'header' %}
   {% endif %}
